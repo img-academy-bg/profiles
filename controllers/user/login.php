@@ -10,6 +10,16 @@ if (empty($_SESSION['logged'])) {
         $pageTitle = 'Users :: Login';
         $pageHeader = 'Login';
     } else {
+        // METHOD == POST -> проверяваме стойностите от формата за вход:
+        if (empty($_POST['email']) || empty($_POST['pass'])) {
+            header('Location: index.php?page=user&action=login&err=' . ERR_MISSING_LOGIN_PARAM);
+            die();
+        }
+        // validation...
+        if (strlen($_POST['pass']) < 6) {
+            header('Location: index.php?page=user&action=login&err=' . ERR_INVALID_LOGIN_PARAM);
+            die();
+        }
         // ...
     }
 } else {

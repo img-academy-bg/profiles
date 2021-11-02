@@ -22,8 +22,8 @@
 </div>
 <div class="row">
   <div class="col-md-6 offset-md-3 mt-3">
-    <a href="#">Register</a> |
+    <a href="<?= 'index.php?page=user&action=register'; ?>">Register</a> |
     <a href="#">Forgot password?</a> |
-    <a href="#">Home page</a>
+    <a href="<?= 'index.php?page=' . DEFAULT_PAGE . '&action=' . DEFAULT_ACTION; ?>">Home page</a>
   </div>
 </div>

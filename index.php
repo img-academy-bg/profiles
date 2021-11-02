@@ -56,5 +56,22 @@ if (strtolower($_SERVER['REQUEST_METHOD']) === 'get') {
     $content = ob_get_clean();
     // Спираме буферирането:
     ob_end_clean();
+    if (!empty($_GET['warn'])) {
+        $warn = (int) $_GET['warn'];
+        $warningMessage = match($warn) {
+            WARN_ALREADY_LOGGED => 'Already logged',
+            default => 'Unknown warning occurred',
+        };
+    }
+    if (!empty($_GET['err'])) {
+        // Обръщамe $_GET['err'] към цяло число, защото всички стойности от
+        // $_GET, $_POST, $_REQUEST и $_COOKIE идват като низове
+        $err = (int) $_GET['err'];
+        $errorMessage = match ($err) {
+            ERR_MISSING_LOGIN_PARAM => 'Missing required parameter',
+            ERR_INVALID_LOGIN_PARAM => 'Invalid parameter',
+            default => 'Unknown error occurred',
+        };
+    }
     require_once VIEWS_DIR . '/layout.php';
 }

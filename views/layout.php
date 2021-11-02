@@ -17,15 +17,21 @@
         <div class="container">
             <h1><?= $pageHeader; ?></h1>
             <div class="row">
+                <?php if (isset($errorMessage)): ?>
                 <div class="alert alert-danger" role="alert">
-                    Error message
+                    <?= $errorMessage; ?>
                 </div>
+                <?php endif; ?>
+                <?php if (isset($successMessage)): ?>
                 <div class="alert alert-success" role="alert">
-                    Success message
+                    <?= $successMessage; ?>
                 </div>
+                <?php endif; ?>
+                <?php if (isset($warningMessage)): ?>
                 <div class="alert alert-warning" role="alert">
-                    Warning message
+                    <?= $warningMessage; ?>
                 </div>
+                <?php endif; ?>
             </div>
             <div class="row">
                 <?= $content; ?>

@@ -11,5 +11,6 @@ return [
     ],
     'user' => [
         'login' => 'user/login.php',
+        'register' => 'user/register.php',
     ]
 ];
