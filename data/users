@@ -1,1 +1,12 @@
-[]
+{
+    "k.savchev@gmail.com": {
+        "first_name": "Kiril",
+        "last_name": "Savchev",
+        "password": "$2y$10$za0p3VyQAcAn2.H15doK0e.FNxlcIPpAEIo.fRep9xa0Nn0sfjsNW"
+    },
+    "kiril.savchev@gmail.com": {
+        "first_name": "Кирил",
+        "last_name": "Савчев",
+        "password": "$2y$10$7GbIV4j.ZG22dwwgqFblmO6MhybT3duh2Q9qiuX\/\/03NIPetbZi0S"
+    }
+}

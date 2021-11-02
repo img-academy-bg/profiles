@@ -70,7 +70,16 @@ if (strtolower($_SERVER['REQUEST_METHOD']) === 'get') {
         $errorMessage = match ($err) {
             ERR_MISSING_LOGIN_PARAM => 'Missing required parameter',
             ERR_INVALID_LOGIN_PARAM => 'Invalid parameter',
+            ERR_REGISTER_MISS_FIRSTNAME => 'Missing first name',
+            ERR_REGISTER_MISS_LASTNAME => 'Missing last name',
+            ERR_REGISTER_EMAIL_EXISTS => 'This email is already registered',
             default => 'Unknown error occurred',
+        };
+    }
+    if (!empty($_GET['success'])) {
+        $success = (int) $_GET['success'];
+        $successMessage = match($success) {
+            SUCCESS_REGISTER => 'Registration is successfull',
         };
     }
     require_once VIEWS_DIR . '/layout.php';
