@@ -32,3 +32,4 @@ define('ERR_REGISTER_EMAIL_EXISTS', 10);
 define('WARN_ALREADY_LOGGED', 1);
 
 define('SUCCESS_REGISTER', 1);
+define('SUCCESS_LOGIN', 2);

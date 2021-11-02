@@ -8,5 +8,6 @@ if (empty($_SESSION['logged'])) {
     die();
 } else {
     // Потребителят Е логнат -> показваме списък с профили:
-    // ...
+    $pageTitle = 'Home :: Profile list';
+    $pageHeader = 'Profile List';
 }

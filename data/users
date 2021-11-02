@@ -2,11 +2,13 @@
     "k.savchev@gmail.com": {
         "first_name": "Kiril",
         "last_name": "Savchev",
-        "password": "$2y$10$za0p3VyQAcAn2.H15doK0e.FNxlcIPpAEIo.fRep9xa0Nn0sfjsNW"
+        "password": "$2y$10$ivD3YZHEn\/SKgZoCVrceyeCPtTWzFyK.b.9rQLs1rzgkmQrH0r5HK",
+        "avatar": "data\/avatars\/acf67dff423ff42b5ebb1e8ed416d3eb.jpg"
     },
     "kiril.savchev@gmail.com": {
-        "first_name": "Кирил",
-        "last_name": "Савчев",
-        "password": "$2y$10$7GbIV4j.ZG22dwwgqFblmO6MhybT3duh2Q9qiuX\/\/03NIPetbZi0S"
+        "first_name": "Kiril",
+        "last_name": "Savchev",
+        "password": "$2y$10$fhJKt5gm4ku5GVrY7dKCFO6k7lVLQKENjiXf41YTz6Atve6J1sNpC",
+        "avatar": "data\/avatars\/cc91868acbd5c0d76682ba2d69e66a0b.jpg"
     }
 }

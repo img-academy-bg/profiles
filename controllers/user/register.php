@@ -97,14 +97,44 @@ if (!empty($_SESSION['logged'])) {
             'first_name' => $_POST['first_name'],
             'last_name' => $_POST['last_name'],
             'password' => password_hash($_POST['pass'], PASSWORD_DEFAULT),
+            'avatar' => '',
         ];
+        // 2.3. Avatar processing...
+        // Проверка дали е качен файл в полето avatar:
+        if (!empty($_FILES['avatar']) && is_array($_FILES['avatar'])) {
+            // 1. Дали е възникнала грешка при качване
+            if ($_FILES['avatar']['error']) {
+                // ...
+            }
+            // 2. Дали е картинка - jpeg, png
+            $allowedTypes = ['image/jpeg', 'image/png'];
+            if (!in_array($_FILES['avatar']['type'], $allowedTypes)) {
+                // ...
+            }
+            // 3. Дали е под 2 Мб
+            $allowedSize = 1024 * 1024 * 2;
+            if ($_FILES['avatar']['size'] > $allowedSize) {
+                // ...
+            }
+            // data/avatars/md5($_POST['email'])
+            if (is_uploaded_file($_FILES['avatar']['tmp_name'])) {
+                if ($_FILES['avatar']['type'] === 'image/jpeg') {
+                    $ext = 'jpg';
+                } else {
+                    $ext = 'png';
+                }
+                $fileName = md5($_POST['email']);
+                $path = 'data/avatars/' . $fileName . '.' . $ext;
+                if (move_uploaded_file($_FILES['avatar']['tmp_name'], $path)) {
+                    $user['avatar'] = $path;
+                }
+            }
+        }
         // 2.2.
         $allUsers[$_POST['email']] = $user;
         file_put_contents('data/users', json_encode($allUsers, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
         
-        // 2.3. Avatar processing...
-        
-        header('Location: index.php?success=' . SUCCESS_REGISTER);
+        header('Location: index.php?page=user&action=login&success=' . SUCCESS_REGISTER);
         die();
     }
 }

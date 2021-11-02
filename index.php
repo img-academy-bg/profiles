@@ -80,6 +80,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) === 'get') {
         $success = (int) $_GET['success'];
         $successMessage = match($success) {
             SUCCESS_REGISTER => 'Registration is successfull',
+            SUCCESS_LOGIN => 'Hello, ' . $_SESSION['user_name'],
         };
     }
     require_once VIEWS_DIR . '/layout.php';
