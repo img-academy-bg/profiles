@@ -7,7 +7,8 @@
 
 return [
     DEFAULT_PAGE => [
-        DEFAULT_ACTION => 'profiles/list.php'
+        DEFAULT_ACTION => 'profiles/list.php',
+        'single' => 'profiles/single.php',
     ],
     'user' => [
         'login' => 'user/login.php',
