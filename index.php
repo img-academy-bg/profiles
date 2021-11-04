@@ -8,6 +8,8 @@ session_start();
 
 // Добавяме конфигурация по подразбиране:
 require_once 'config/defaults.php';
+// Добавяме файл с функции:
+require_once './functions.php';
 
 // Проверяваме дали съществува ключа page в URL параметрите:
 if (isset($_GET['page'])) {

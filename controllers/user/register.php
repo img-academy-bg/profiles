@@ -23,13 +23,11 @@ if (!empty($_SESSION['logged'])) {
         // 2.2.
         // Проверка дали съществува стойност за първо име:
         if (empty($_POST['first_name'])) {
-            header('Location: index.php?page=user&action=register&err=' . ERR_REGISTER_MISS_FIRSTNAME);
-            die();
+            redirect_to('user', 'register', ['err' => ERR_REGISTER_MISS_FIRSTNAME]);
         }
         // Проверка дали съществува стойност за фамилно име:
         if (empty($_POST['last_name'])) {
-            header('Location: index.php?page=user&action=register&err=' . ERR_REGISTER_MISS_LASTNAME);
-            die();
+            redirect_to('user', 'register', ['err' => ERR_REGISTER_MISS_LASTNAME]);
         }
         // Проверка дали съществува стойност за email:
         if (empty($_POST['email'])) {

@@ -1,4 +1,7 @@
-<div class="col-md-12">
+<div class="col-md-2">
+    <?php include_once 'views/partials/menu.php'; ?>
+</div>
+<div class="col-md-10">
     <?php if (!empty($profiles)): ?>
     <table class="table">
       <thead>
@@ -15,7 +18,7 @@
         <tr>
           <th scope="row"><?= ($index + 1) + ($itemsPerPage * ($currentPage-1)); ?></th>
           <td>
-              <a href="?page=profiles&action=single&id=<?= $profile['id']; ?>">
+              <a href="<?= create_url('profiles', 'single', ['id' => $profile['id']]); ?>">
                 <?= $profile['first_name'] . ' ' . $profile['last_name'] ?>
               </a>
           </td>

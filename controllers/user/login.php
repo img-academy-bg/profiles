@@ -12,13 +12,11 @@ if (empty($_SESSION['logged'])) {
     } else {
         // METHOD == POST -> проверяваме стойностите от формата за вход:
         if (empty($_POST['email']) || empty($_POST['pass'])) {
-            header('Location: index.php?page=user&action=login&err=' . ERR_MISSING_LOGIN_PARAM);
-            die();
+            redirect_to('user', 'login', ['err' => ERR_MISSING_LOGIN_PARAM]);
         }
         // validation...
         if (strlen($_POST['pass']) < 6) {
-            header('Location: index.php?page=user&action=login&err=' . ERR_INVALID_LOGIN_PARAM);
-            die();
+            redirect_to('user', 'login', ['err' => ERR_INVALID_LOGIN_PARAM]);
         }
         $fileContent = file_get_contents('data/users');
         $allUsers = json_decode($fileContent, true);
@@ -39,6 +37,5 @@ if (empty($_SESSION['logged'])) {
 } else {
     // Потребителят Е логнат
     // Пренасочване на потребителя към началната страница:
-    header('Location: ?page=' . DEFAULT_PAGE . '&action=' . DEFAULT_ACTION);
-    exit();
+    redirect_to(DEFAULT_PAGE, DEFAULT_ACTION);
 }

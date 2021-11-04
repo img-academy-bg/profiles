@@ -13,5 +13,6 @@ return [
     'user' => [
         'login' => 'user/login.php',
         'register' => 'user/register.php',
+        'logout' => 'user/logout.php',
     ]
 ];

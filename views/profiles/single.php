@@ -1,3 +1,6 @@
+<div class="col-md-2">
+    <?php include_once 'views/partials/menu.php'; ?>
+</div>
 <div class="col-md-10">
     <?php if (empty($profile)): ?>
         <div class="alert alert-danger">Invalid profile</div>
