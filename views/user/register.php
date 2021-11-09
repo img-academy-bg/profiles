@@ -4,7 +4,7 @@
 
 ?>
 <div class="col-md-6 offset-md-3">
-  <form method="post" action="?page=user&action=register" enctype="multipart/form-data">
+    <form method="post" action="<?= create_url('user', 'register') ?>" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="firstName" class="form-label">First name:</label>
       <input type="text" name="first_name" id="firstName" class="form-control" placeholder="John">

@@ -7,12 +7,12 @@
 
 return [
     DEFAULT_PAGE => [
-        DEFAULT_ACTION => 'profiles/list.php',
-        'single' => 'profiles/single.php',
+        DEFAULT_ACTION => 'profiles_list_controller',
+        'single' => 'profiles_single_controller',
     ],
     'user' => [
-        'login' => 'user/login.php',
-        'register' => 'user/register.php',
-        'logout' => 'user/logout.php',
+        'login' => 'user_login_controller',
+        'register' => 'user_register_controller',
+        'logout' => 'user_logout_controller',
     ]
 ];

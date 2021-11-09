@@ -44,3 +44,21 @@ function redirect_to(string $page, string $action, array $params = []): void {
     header('Location: ' . $url);
     die();
 }
+
+/**
+ * Checks whether the user is logged or not
+ * 
+ * @return bool True if the user is logged, otherwise false
+ */
+function user_is_logged(): bool {
+    return !empty($_SESSION['logged']);
+}
+
+/**
+ * Checks whether the request method is get or not
+ * 
+ * @return bool
+ */
+function method_is_get(): bool {
+    return strtolower($_SERVER['REQUEST_METHOD']) === 'get';
+}

@@ -4,7 +4,7 @@
 
 ?>
 <div class="col-md-6 offset-md-3">
-  <form method="post" action="?page=user&action=login">
+  <form method="post" action="<?= create_url('user', 'login'); ?>">
     <div class="mb-3">
       <label for="email" class="form-label">Email address:</label>
       <input type="email" name="email" id="email" class="form-control" placeholder="j.doe@example.com">

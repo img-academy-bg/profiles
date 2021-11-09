@@ -12,24 +12,22 @@ require_once 'config/defaults.php';
 require_once './functions.php';
 
 // Проверяваме дали съществува ключа page в URL параметрите:
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
-} else {
-    $page = DEFAULT_PAGE;
-}
-
+$page = $_GET['page'] ?? DEFAULT_PAGE;
 // Проверяваме дали съществува ключа action в URL параметрите:
 $action = $_GET['action'] ?? DEFAULT_ACTION;
 
 $routes = require_once 'config/routes.php';
 
+require_once 'controllers/profiles.php';
+require_once 'controllers/user.php';
+
 // Проверка дали $routes е масив, дали има ключ $page и дали стойността му е масив:
 if (is_array($routes) && array_key_exists($page, $routes) && is_array($routes[$page])) {
     if (array_key_exists($action, $routes[$page]) && is_string($routes[$page][$action])) {
-        $controller = CONTROLLERS_DIR . '/' . $routes[$page][$action];
-        // проверяваме дали съществува такъв файл:
-        if (file_exists($controller)) {
-            require_once $controller;
+        $controller = $routes[$page][$action];
+        // проверяваме дали съществува такава функция:
+        if (function_exists($controller)) {
+            $viewModel = $controller();
         } else {
             http_response_code(500);
             die();
@@ -43,7 +41,7 @@ if (is_array($routes) && array_key_exists($page, $routes) && is_array($routes[$p
     die();
 }
 // Проверяваме дали HTTP метода е GET:
-if (strtolower($_SERVER['REQUEST_METHOD']) === 'get') {
+if (method_is_get()) {
     $stringTpl = '%s/%s/%s.php';
     $viewFile = sprintf($stringTpl, VIEWS_DIR, $page, $action);
     if (!file_exists($viewFile)) {
