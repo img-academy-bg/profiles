@@ -40,8 +40,12 @@
                 <?php endif; ?>
 
                 <?php
-                if ($viewModel['currentPage'] > $viewModel['maxPageLinks']):
-                    $displayLinksTo = $viewModel['currentPage'] - $viewModel['maxPageLinks'];
+                if ($viewModel['currentPage'] > 1):
+                    if ($viewModel['currentPage'] > $viewModel['maxPageLinks']) {
+                        $displayLinksTo = $viewModel['currentPage'] - $viewModel['maxPageLinks'];                    
+                    } else {
+                        $displayLinksTo = 1;
+                    }
                     for ($i = $displayLinksTo; $i <= $viewModel['currentPage'] - 1; $i++):
                         ?>
                         <li class="page-item">
