@@ -22,14 +22,14 @@ function paginate_profiles(array $profiles): array {
     $currentPage = (int) ($_GET['currentPage'] ?? 1);
     $totalPages = ceil(count($profiles) / $itemsPerPage);
     $offset = ($currentPage - 1) * $itemsPerPage;
-    $profiles = array_slice($profiles, $offset, $itemsPerPage);
 
     return [
         'itemsPerPage' => $itemsPerPage,
         'currentPage' => $currentPage,
         'totalPages' => $totalPages,
         'offset' => $offset,
-        'profiles' => $profiles
+        'profiles' => array_slice($profiles, $offset, $itemsPerPage),
+        'maxPageLinks' => MAX_PAGE_LINKS,
     ];
 }
 
